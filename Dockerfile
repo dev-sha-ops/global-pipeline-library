@@ -31,4 +31,4 @@ COPY scripts/ scripts/
 COPY action.yml .
 
 # Set the default command to execute the Groovy script
-CMD ["groovy", "scripts/script.groovy"]
+CMD ["/usr/bin/groovy", "scripts/script.groovy"]

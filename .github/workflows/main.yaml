@@ -11,6 +11,5 @@ jobs:
       - name: Run Custom Groovy Action
         uses: ./ # Local action path
         with:
-          mvn-version: "3.8.6"
           build-profile: "release"
           additional-args: "-DskipTests"
