@@ -1,0 +1,33 @@
+name: Groovy Workflow
+
+on:
+  workflow_call:
+    inputs:
+      input1: 
+        description: 'First input'
+        required: true 
+        default: 'default value for input 1' 
+      input2: 
+        description: 'Second input' 
+        required: true 
+        default: 'default value for input 2' 
+      input3: 
+        description: 'Third input' 
+        required: true 
+        default: 'default value for input 3'
+jobs:
+  execute-groovy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Java
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11'
+
+    - name: Execute Groovy Script
+      run: |
+        groovy script.groovy "${{ github.event.inputs.input1 }}" "${{ github.event.inputs.input2 }}" "${{ github.event.inputs.input3 }}" 
