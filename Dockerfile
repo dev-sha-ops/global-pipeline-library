@@ -1,10 +1,9 @@
 FROM groovy:latest
 
 # Install Maven
-RUN apk update || true
-RUN apt update && \
-    apt install -y maven && \
-    apt clean
+RUN apt update     
+RUN apt install -y maven
+RUN apt clean
 
 # Set the working directory
 WORKDIR /action
