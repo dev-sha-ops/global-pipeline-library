@@ -25,7 +25,20 @@ jobs:
           echo "Input1: ${{ inputs.input1 }}"
           echo "Input2: ${{ inputs.input2 }}"
           echo "Input3: ${{ inputs.input3 }}"
-
+      - name: Checkout code
+        uses: actions/checkout@v2
+  
+      - name: Setup Java
+        uses: actions/setup-java@v2
+        with:
+          java-version: '11'
+  
+      - name: Install Groovy
+        run: sudo apt-get update && sudo apt-get install -y groovy
+  
+      - name: Execute Groovy Script
+        run: |
+          groovy script.groovy "${{ inputs.input1 }}" "${{ inputs.input2 }}" "${{ inputs.input3 }}"
 
 
 
