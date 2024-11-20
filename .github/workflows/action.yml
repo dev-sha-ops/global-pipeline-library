@@ -1,37 +1,82 @@
-name: Groovy Workflow
+name: Global Pipeline Library
 
 on:
   workflow_call:
     inputs:
-      input1: 
-        description: 'First input'
-        required: true 
-        default: 'default value for input 1' 
-      input2: 
-        description: 'Second input' 
-        required: true 
-        default: 'default value for input 2' 
-      input3: 
-        description: 'Third input' 
-        required: true 
-        default: 'default value for input 3'
+      input1:
+        description: "First input parameter"
+        required: true
+        type: string
+      input2:
+        description: "Second input parameter"
+        required: true
+        type: string
+      input3:
+        description: "Third input parameter"
+        required: true
+        type: string
 
 jobs:
-  execute-groovy:
+  process:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Log Inputs
+        run: |
+          echo "Input1: ${{ inputs.input1 }}"
+          echo "Input2: ${{ inputs.input2 }}"
+          echo "Input3: ${{ inputs.input3 }}"
 
-    - name: Setup Java
-      uses: actions/setup-java@v2
-      with:
-        java-version: '11'
 
-    - name: Install Groovy
-      run: sudo apt-get update && sudo apt-get install -y groovy
 
-    - name: Execute Groovy Script
-      run: |
-        groovy script.groovy "${{ inputs.input1 }}" "${{ inputs.input2 }}" "${{ inputs.input3 }}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# name: Groovy Workflow
+
+# on:
+#   workflow_call:
+#     inputs:
+#       input1: 
+#         description: 'First input'
+#         required: true 
+#         default: 'default value for input 1' 
+#       input2: 
+#         description: 'Second input' 
+#         required: true 
+#         default: 'default value for input 2' 
+#       input3: 
+#         description: 'Third input' 
+#         required: true 
+#         default: 'default value for input 3'
+
+# jobs:
+#   execute-groovy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout code
+#       uses: actions/checkout@v2
+
+#     - name: Setup Java
+#       uses: actions/setup-java@v2
+#       with:
+#         java-version: '11'
+
+#     - name: Install Groovy
+#       run: sudo apt-get update && sudo apt-get install -y groovy
+
+#     - name: Execute Groovy Script
+#       run: |
+#         groovy script.groovy "${{ inputs.input1 }}" "${{ inputs.input2 }}" "${{ inputs.input3 }}"
