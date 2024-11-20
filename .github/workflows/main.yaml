@@ -9,7 +9,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Run Custom Groovy Action
-        uses:  .github/actions/groovy/action.yml
+        uses:  ./.github/workflows/action.yml
         with:
           input1: "-DskipTests1"
           input2: "-DskipTests2"
