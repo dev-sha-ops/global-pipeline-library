@@ -2,7 +2,7 @@ FROM groovy:latest
 
 # Install Maven
 RUN apk update || true
-RUN ap update && \
+RUN apt update && \
     apt install -y maven && \
     apt clean
 
