@@ -1,9 +1,9 @@
 FROM groovy:latest
 
 # Install Maven
-RUN apt update     
-RUN apt install -y maven
-RUN apt clean
+RUN apt-get update     
+RUN apt-get install -y maven
+RUN apt-get clean
 
 # Set the working directory
 WORKDIR /action
