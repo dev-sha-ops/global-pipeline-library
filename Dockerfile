@@ -31,4 +31,4 @@ COPY scripts/ scripts/
 COPY action.yml .
 RUN chmod +x scripts/script.groovy
 # Set the default command to execute the Groovy script
-CMD ["/usr/bin/groovy", "scripts/script.groovy"]
+CMD ["/opt/groovy-4.0.15/bin/groovy", "scripts/script.groovy"]

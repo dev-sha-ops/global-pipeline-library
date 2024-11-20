@@ -2,9 +2,6 @@ name: "Groovy Script Runner with Declarative Inputs"
 description: "Run a Groovy script with declarative inputs like Maven version"
 author: "Your Name"
 inputs:
-  mvn-version:
-    description: "The Maven version to use"
-    required: true
   build-profile:
     description: "The build profile to use"
     required: false
@@ -20,6 +17,5 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - "${{ inputs.mvn-version }}"
     - "${{ inputs.build-profile }}"
     - "${{ inputs.additional-args }}"
